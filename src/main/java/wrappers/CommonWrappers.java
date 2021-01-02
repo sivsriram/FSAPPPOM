@@ -252,7 +252,7 @@ public class CommonWrappers {
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.visibilityOf(ele));
 			String name = ele.getText();
-			if (name.contains(Expected)) {
+			if (name.equals(Expected)) {
 				val = true;
 			} else
 				val = false;
@@ -286,8 +286,7 @@ public class CommonWrappers {
 	private boolean scrollUsingTouchActions(int startX, int startY, int endX, int endY) {
 		try {
 //			new TouchAction<>(driver).press(PointOption.point(startX, startY)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2))).moveTo(PointOption.point(endX, endY)).release().perform();
-			MultiTouchAction touch = new MultiTouchAction(driver);
-			touch.add(new TouchAction<>(driver).press(PointOption.point(startX, startY))
+			new MultiTouchAction(driver).add(new TouchAction<>(driver).press(PointOption.point(startX, startY))
 					.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2))).moveTo(PointOption.point(endX, endY))
 					.release()).perform();
 			return true;
@@ -324,16 +323,16 @@ public class CommonWrappers {
 
 	public void doubleTapUsingPointerInput(int x, int y) {
 		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-		Sequence tap = new Sequence(finger, 1);
-		tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
-		tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-		tap.addAction(new Pause(finger, Duration.ofMillis(200)));
-		tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-		tap.addAction(new Pause(finger, Duration.ofMillis(40)));
-		tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-		tap.addAction(new Pause(finger, Duration.ofMillis(200)));
-		tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-		driver.perform(Arrays.asList(tap));
+		Sequence doubleTap = new Sequence(finger, 1);
+		doubleTap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+		doubleTap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		doubleTap.addAction(new Pause(finger, Duration.ofMillis(200)));
+		doubleTap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+		doubleTap.addAction(new Pause(finger, Duration.ofMillis(200)));
+		doubleTap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		doubleTap.addAction(new Pause(finger, Duration.ofMillis(200)));
+		doubleTap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+		driver.perform(Arrays.asList(doubleTap));
 	}
 
 	public void pinchUsingPointerInput() {
@@ -680,7 +679,7 @@ public class CommonWrappers {
 		driver.get(URL);
 		return true;
 	}
-	
+
 	public void switchToAnotherApp(String bundleIdOrAppPackage) {
 		driver.activateApp(bundleIdOrAppPackage);
 	}
