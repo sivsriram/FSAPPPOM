@@ -20,8 +20,7 @@ public class MultiToucPractice extends GenericWrappers{
 		pinchUsingPointerInput();
 		pinchUsingTouchActions();
 		zoomUsingTouchActions();
-		ZoomUsingPointerInput();
-		
+		ZoomUsingPointerInput();		
 	}
 	
 }
