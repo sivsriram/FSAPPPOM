@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Set;
@@ -199,25 +202,29 @@ public class CommonWrappers {
 	}
 
 	public WebElement getWebElement(String locator, String locValue) {
-		switch (locator) {
-		case "id":
-			return driver.findElement(MobileBy.id(locValue));
-		case "name":
-			return driver.findElement(MobileBy.name(locValue));
-		case "className":
-			return driver.findElement(MobileBy.className(locValue));
-		case "link":
-			return driver.findElement(MobileBy.linkText(locValue));
-		case "partialLink":
-			return driver.findElement(MobileBy.partialLinkText(locValue));
-		case "tag":
-			return driver.findElement(MobileBy.tagName(locValue));
-		case "css":
-			return driver.findElement(MobileBy.cssSelector(locValue));
-		case "xpath":
-			return driver.findElement(MobileBy.xpath(locValue));
-		case "accessibilityId":
-			return driver.findElement(MobileBy.AccessibilityId(locValue));
+		try {
+			switch (locator) {
+			case "id":
+				return driver.findElement(MobileBy.id(locValue));
+			case "name":
+				return driver.findElement(MobileBy.name(locValue));
+			case "className":
+				return driver.findElement(MobileBy.className(locValue));
+			case "link":
+				return driver.findElement(MobileBy.linkText(locValue));
+			case "partialLink":
+				return driver.findElement(MobileBy.partialLinkText(locValue));
+			case "tag":
+				return driver.findElement(MobileBy.tagName(locValue));
+			case "css":
+				return driver.findElement(MobileBy.cssSelector(locValue));
+			case "xpath":
+				return driver.findElement(MobileBy.xpath(locValue));
+			case "accessibilityId":
+				return driver.findElement(MobileBy.AccessibilityId(locValue));
+			}
+		} catch (Exception e) {
+			
 		}
 		return null;
 	}
@@ -611,8 +618,14 @@ public class CommonWrappers {
 		return true;
 	}
 
-	public boolean pullFile(String remotePath) {
-		driver.pullFile(remotePath);
+	public boolean pullFile(String phonePath, String destinationPath) {
+		byte[] data = driver.pullFile(phonePath);
+		Path path = Paths.get(destinationPath);
+		try {
+			Files.write(path, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 
