@@ -227,7 +227,7 @@ public class CommonWrappers {
 				return driver.findElement(MobileBy.AccessibilityId(locValue));
 			}
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}
@@ -248,12 +248,11 @@ public class CommonWrappers {
 
 	public boolean eleIsDisplayed(WebElement ele) {
 		try {
-			if (ele.isDisplayed())
-				return true;
+			return ele.isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}
-		return false;
+
 	}
 
 	public boolean verifyText(WebElement ele, String Expected) {
