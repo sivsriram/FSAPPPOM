@@ -108,6 +108,9 @@ public class CommonWrappers {
 			dc.setCapability("browserName", browserName);
 			dc.setCapability("deviceName", deviceName);
 			dc.setCapability("platformName", platformName);
+			dc.setCapability("noReset", true);
+			dc.setCapability("autoAcceptAlerts", true);
+			dc.setCapability("autoGrantPermissions", true);
 			if (platformName.equalsIgnoreCase("Android"))
 				driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 			else if (platformName.equalsIgnoreCase("iOS"))
