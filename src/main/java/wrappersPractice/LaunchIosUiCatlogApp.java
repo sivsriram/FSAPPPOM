@@ -11,7 +11,7 @@ public class LaunchIosUiCatlogApp extends GenericWrappers{
 	
 	@Test
 	public void runTC() {
-		launchIosApp("iPhone", "00008020-001A656C1105002E", "GJZCQ6TB82", "com.example.apple-samplecode.UICatalog", "");
+		launchIosApp("iPhone", "00008020-001A656C1105002E", "", "com.example.apple-samplecode.UICatalog", "");
 //		click(getWebElement(Locators.XPATH.toString(), "(//XCUIElementTypeCell)[1]"));
 //		click(getWebElement(Locators.ACCESSIBILITY_ID.toString(), "Okay / Cancel"));
 //		click(getWebElement(Locators.ACCESSIBILITY_ID.toString(), "OK"));
