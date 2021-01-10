@@ -73,9 +73,14 @@ public class AndroidWrappers extends CommonWrappers {
 		((HasNetworkConnection) driver).setConnection(new ConnectionStateBuilder().withWiFiEnabled().build());
 		return true;
 	}
-	
+
 	public String getCurrentActivity() {
 		return ((StartsActivity) driver).currentActivity();
+	}
+
+	public boolean deleteChromeCookies() {
+		driver.manage().deleteAllCookies();
+		return true;
 	}
 
 }

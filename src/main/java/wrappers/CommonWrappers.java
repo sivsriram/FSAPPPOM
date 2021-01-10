@@ -113,13 +113,21 @@ public class CommonWrappers {
 			dc.setCapability("autoGrantPermissions", true);
 			if (platformName.equalsIgnoreCase("Android"))
 				driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
-			else if (platformName.equalsIgnoreCase("iOS"))
+			else if (platformName.equalsIgnoreCase("iOS")) {
+				dc.setCapability("nativeWebTap", true);
+				dc.setCapability("automationName", "XCUITest");
 				driver = new IOSDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
+			}
 			driver.get(URL);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		return true;
+	}
+
+	public boolean navigateToPage(String URL) {
+		driver.get(URL);
 		return true;
 	}
 
@@ -675,9 +683,7 @@ public class CommonWrappers {
 	public boolean click(WebElement ele) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.elementToBeClickable(ele));
-			ele.click();
-
+			wait.until(ExpectedConditions.elementToBeClickable(ele)).click();;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -693,6 +699,15 @@ public class CommonWrappers {
 
 	public boolean loadURL(String URL) {
 		driver.get(URL);
+		return true;
+	}
+
+	public boolean switchToLastWindow() {
+		sleep(5000);
+		Set<String> windowHandles = driver.getWindowHandles();
+		for (String string : windowHandles) {
+			driver.switchTo().window(string);
+		}
 		return true;
 	}
 
