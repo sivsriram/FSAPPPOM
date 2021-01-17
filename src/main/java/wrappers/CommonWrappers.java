@@ -235,7 +235,7 @@ public class CommonWrappers extends Reporter {
 				return driver.findElement(MobileBy.AccessibilityId(locValue));
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		return null;
 	}

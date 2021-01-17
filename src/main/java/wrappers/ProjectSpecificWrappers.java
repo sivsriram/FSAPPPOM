@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import utils.DataInputProvider;
@@ -16,7 +17,7 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 
 	@BeforeSuite
 	public void bs() {
-		startResult();
+		startReport();
 	}
 
 	@BeforeClass
@@ -24,14 +25,20 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 		startTestModule(testCaseName, testDescription);
 	}
 
-	@Parameters({ "platformName", "platformVersion", "deviceName", "udid", "appPath", "appPackage", "appActivity",
-			"automationName", "chromedriverPort", "systemPort", "xcodeOrgId", "bundleId", "wdaLocalPort" })
+	@Parameters({ "platformName", "deviceName", "udid", "appPackage", "appActivity", "automationName",
+			"chromeDriverPort", "systemPort", "xcodeOrgId", "xcodeSigningId", "bundleId", "app", "mjpegServerPort",
+			"wdaLocalPort" })
 	@BeforeMethod
-	public void bm(String platformName, String platformVersion, String deviceName, String udid, String appPath,
-			String appPackage, String appActivity, String automationName, int chromedriverPort, int systemPort,
-			String xcodeOrgId, String bundleId, int wdaLocalPort) {
+	public void bm(String platformName, String deviceName, @Optional("") String udid, @Optional("") String appPackage,
+			@Optional("") String appActivity, @Optional("") String automationName,
+			@Optional("") String chromeDriverPort, @Optional("") String systemPort, @Optional("") String xcodeOrgId,
+			@Optional("") String xcodeSigningId, @Optional("") String bundleId, @Optional("") String app,
+			@Optional("") String mjpegServerPort, @Optional("") String wdaLocalPort) {
 		startTestCase(testNodes);
-		
+		launchApp(platformName, deviceName, udid, appPackage, appActivity, automationName, chromeDriverPort, systemPort,
+				xcodeOrgId, xcodeSigningId, bundleId, app, mjpegServerPort, wdaLocalPort);
+		sleep(3000);
+		switchContext("WEBVIEW_com.testleaf.leaforg");
 	}
 
 	@AfterMethod
@@ -41,7 +48,7 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 
 	@AfterSuite
 	public void as() {
-		endResult();
+		endReport();
 	}
 
 	@DataProvider(name = "fetchData")

@@ -4,20 +4,20 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.model.Media;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 //import com.aventstack.extentreports.MediaEntityModelProvider;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 //import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public abstract class Reporter {
 
-	//public static ExtentHtmlReporter report;
+	//public ExtentHtmlReporter report;
 	public static ExtentSparkReporter report;
 	public static ExtentReports extent;
-	public static ExtentTest test, suiteTest;
+	public ExtentTest test, suiteTest;
 	public String testCaseName, testNodes, testDescription, category, authors;
 
 
-	public void startResult() {
+	public void startReport() {
 		//report = new ExtentHtmlReporter("./reports/result.html");
 		report = new ExtentSparkReporter("./reports/result.html");
 		report.config().setDocumentTitle("Mobile Automation");
@@ -29,6 +29,7 @@ public abstract class Reporter {
 
 	public ExtentTest startTestModule(String testCaseName, String testDescription) {
 		suiteTest = extent.createTest(testCaseName, testDescription);
+		suiteTest.assignAuthor("Lokesh Kumar");
 		return suiteTest;
 	}
 
@@ -50,8 +51,12 @@ public abstract class Reporter {
 
 			long snapNumber = 100000L;
 			snapNumber = takeScreenShot();
-			img = MediaEntityBuilder.createScreenCaptureFromPath
-					("./../reports/images/"+snapNumber+".png").build();
+			try {
+				img = MediaEntityBuilder.createScreenCaptureFromPath
+						("./../reports/images/"+snapNumber+".png").build();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if(status.equalsIgnoreCase("PASS")) {
 			test.pass(desc, img);			
@@ -73,7 +78,7 @@ public abstract class Reporter {
 
 
 
-	public void endResult() {
+	public void endReport() {
 		extent.flush();
 	}	
 
