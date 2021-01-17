@@ -36,8 +36,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import utils.Reporter;
 
-public class CommonWrappers {
+public class CommonWrappers extends Reporter{
 	public AppiumDriver<WebElement> driver;
 
 	public boolean launchApp(String platformName, String deviceName, String udid, String appPackage, String appActivity,
@@ -100,20 +101,19 @@ public class CommonWrappers {
 				dc.setCapability("chromedriverPort", chromeDriverPort);
 			// iOS
 			if (!wdaLocalPort.equals(""))
-				dc.setCapability("wdaLocalPort", wdaLocalPort);
-
-			if (browserName.equalsIgnoreCase("Safari"))
-				dc.setCapability("startIWDP", true);
+				dc.setCapability("wdaLocalPort", wdaLocalPort);		
 			// Mandatory desired capabilities
 			dc.setCapability("browserName", browserName);
 			dc.setCapability("deviceName", deviceName);
 			dc.setCapability("platformName", platformName);
+			// Comment the below lines based on need
 			dc.setCapability("noReset", true);
 			dc.setCapability("autoAcceptAlerts", true);
 			dc.setCapability("autoGrantPermissions", true);
 			if (platformName.equalsIgnoreCase("Android"))
 				driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 			else if (platformName.equalsIgnoreCase("iOS")) {
+				dc.setCapability("startIWDP", true);
 				dc.setCapability("nativeWebTap", true);
 				dc.setCapability("automationName", "XCUITest");
 				driver = new IOSDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
@@ -126,16 +126,11 @@ public class CommonWrappers {
 		return true;
 	}
 
-	public boolean navigateToPage(String URL) {
-		driver.get(URL);
-		return true;
-	}
-
-	public boolean verifyAndInstallApp(String appPackage, String appPath) {
+	public boolean verifyAndInstallApp(String bundleIdOrAppPackage, String appPath) {
 		boolean bInstallSuccess = false;
 
-		if (driver.isAppInstalled(appPackage))
-			driver.removeApp(appPackage);
+		if (driver.isAppInstalled(bundleIdOrAppPackage))
+			driver.removeApp(bundleIdOrAppPackage);
 
 		driver.installApp(appPath);
 		bInstallSuccess = true;
@@ -683,7 +678,7 @@ public class CommonWrappers {
 	public boolean click(WebElement ele) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.elementToBeClickable(ele)).click();;
+			wait.until(ExpectedConditions.elementToBeClickable(ele)).click();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
