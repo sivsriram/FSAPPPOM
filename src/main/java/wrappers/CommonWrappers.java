@@ -36,7 +36,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import utils.Reporter;
 
 public class CommonWrappers {
 	public AppiumDriver<WebElement> driver;
