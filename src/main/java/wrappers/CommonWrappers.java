@@ -36,8 +36,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import utils.Reporter;
 
-public class CommonWrappers {
+public class CommonWrappers extends Reporter {
 	public AppiumDriver<WebElement> driver;
 
 	public boolean launchApp(String platformName, String deviceName, String udid, String appPackage, String appActivity,
