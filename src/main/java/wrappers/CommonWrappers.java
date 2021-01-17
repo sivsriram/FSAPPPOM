@@ -38,7 +38,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import utils.Reporter;
 
-public class CommonWrappers extends Reporter{
+public class CommonWrappers {
 	public AppiumDriver<WebElement> driver;
 
 	public boolean launchApp(String platformName, String deviceName, String udid, String appPackage, String appActivity,
@@ -75,14 +75,17 @@ public class CommonWrappers extends Reporter{
 			// Mandatory desired capabilities
 			dc.setCapability("platformName", platformName);
 			dc.setCapability("deviceName", deviceName);
-			// Comment the below lines based on need
+			// Comment the below line based on need
 			dc.setCapability("noReset", true);
-			dc.setCapability("autoAcceptAlerts", true);
-			dc.setCapability("autoGrantPermissions", true);
-			if (platformName.equalsIgnoreCase("Android"))
+			if (platformName.equalsIgnoreCase("Android")) {
+				// Comment the below line based on need
+				dc.setCapability("autoGrantPermissions", true);
 				driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
-			else if (platformName.equalsIgnoreCase("iOS"))
+			} else if (platformName.equalsIgnoreCase("iOS")) {
+				// Comment the below line based on need
+				dc.setCapability("autoAcceptAlerts", true);
 				driver = new IOSDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
+			}
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,18 +104,20 @@ public class CommonWrappers extends Reporter{
 				dc.setCapability("chromedriverPort", chromeDriverPort);
 			// iOS
 			if (!wdaLocalPort.equals(""))
-				dc.setCapability("wdaLocalPort", wdaLocalPort);		
+				dc.setCapability("wdaLocalPort", wdaLocalPort);
 			// Mandatory desired capabilities
 			dc.setCapability("browserName", browserName);
 			dc.setCapability("deviceName", deviceName);
 			dc.setCapability("platformName", platformName);
-			// Comment the below lines based on need
+			// Comment the below line based on need
 			dc.setCapability("noReset", true);
-			dc.setCapability("autoAcceptAlerts", true);
-			dc.setCapability("autoGrantPermissions", true);
-			if (platformName.equalsIgnoreCase("Android"))
+			if (platformName.equalsIgnoreCase("Android")) {
+				// Comment the below line based on need
+				dc.setCapability("autoGrantPermissions", true);
 				driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
-			else if (platformName.equalsIgnoreCase("iOS")) {
+			} else if (platformName.equalsIgnoreCase("iOS")) {
+				// Comment the below line based on need
+				dc.setCapability("autoAcceptAlerts", true);
 				dc.setCapability("startIWDP", true);
 				dc.setCapability("nativeWebTap", true);
 				dc.setCapability("automationName", "XCUITest");
