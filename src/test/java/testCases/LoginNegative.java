@@ -8,13 +8,14 @@ import pages.FSSignupPage;
 import pages.LoginPage;
 import wrappers.ProjectSpecificWrappers;
 
-public class LoginTC extends ProjectSpecificWrappers {
+public class LoginNegative extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
 		testCaseName = "Login";
-		testDescription = "Login in Fantasy Spin app";
+		testDescription = "Invalid Login in Fantasy Spin app";
 		testNodes = "FSapp";
-		dataSheetName = "TC01";
+		dataSheetName = "TC02";
+		sleep(10000);
 	}
 
 
@@ -24,11 +25,9 @@ public class LoginTC extends ProjectSpecificWrappers {
 			.clickLogin()
 			.enterEmailAddress(un)
 			.enterPassword(pwd)
-			.clickLogin()			
-			.clickSettings()
-			.clickLinkAccounts()
-			.clickUnLinkAccounts();
+			.clickLoginForFailure();			
+
+
 			
 	}
-
 }

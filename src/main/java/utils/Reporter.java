@@ -29,7 +29,7 @@ public abstract class Reporter {
 
 	public ExtentTest startTestModule(String testCaseName, String testDescription) {
 		suiteTest = extent.createTest(testCaseName, testDescription);
-		suiteTest.assignAuthor("Lokesh Kumar");
+		suiteTest.assignAuthor("Sriram");
 		return suiteTest;
 	}
 

@@ -11,17 +11,23 @@ import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import wrappers.GenericWrappers;
 
-public class HomePage extends GenericWrappers {
+public class FSHomePage extends GenericWrappers {
 
-	public HomePage(AppiumDriver<WebElement> driver, ExtentTest test) {
+	public FSHomePage(AppiumDriver<WebElement> driver, ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
-//	@AndroidFindBy(id="")
-//	@iOSXCUITFindBy(className="")
-//	private WebElement ele;
-	
+
+	public FSHomePage clickSettings() {
+		if (click(getWebElement("xpath", "//android.widget.TextView[@text='LOG IN']"))) {
+			reportStep("Login button clicked successfully", "PASS");
+		} else {
+			reportStep("Login button click failed", "FAIL");
+		}
+		return new FSHomePage(driver,test);
+		//return this;
+	}
+
 	
 }

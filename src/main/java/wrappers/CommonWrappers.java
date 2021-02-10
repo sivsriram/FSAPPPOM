@@ -86,7 +86,7 @@ public class CommonWrappers extends Reporter {
 				dc.setCapability("autoAcceptAlerts", true);
 				driver = new IOSDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 			}
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

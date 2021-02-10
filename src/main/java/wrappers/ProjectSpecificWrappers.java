@@ -35,10 +35,11 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 			@Optional("") String xcodeSigningId, @Optional("") String bundleId, @Optional("") String app,
 			@Optional("") String mjpegServerPort, @Optional("") String wdaLocalPort) {
 		startTestCase(testNodes);
+		sleep(5000);
 		launchApp(platformName, deviceName, udid, appPackage, appActivity, automationName, chromeDriverPort, systemPort,
 				xcodeOrgId, xcodeSigningId, bundleId, app, mjpegServerPort, wdaLocalPort);
-		sleep(3000);
-		switchContext("WEBVIEW_com.testleaf.leaforg");
+		sleep(10000);
+//		switchContext("WEBVIEW_com.testleaf.leaforg");
 	}
 
 	@AfterMethod

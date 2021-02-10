@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-		<parameter name="appPackage" value="com.testleaf.leaforg"></parameter>
-		<parameter name="appActivity" value="com.testleaf.leaforg.MainActivity"></parameter>
+		<parameter name="appPackage" value="com.footballnation.fantasyspin.debug"></parameter>
+		<parameter name="appActivity" value="com.footballnation.fantasyspin.activitys.SplashActivity"></parameter>
 		<parameter name="platformName" value="Android"></parameter>
-		<parameter name="deviceName" value="My device"></parameter>
+		<parameter name="deviceName" value=" Sriram device"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="testCases.LoginTC" />
+			
+			<class name="testCases.LoginNegative" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
