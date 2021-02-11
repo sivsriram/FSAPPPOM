@@ -31,6 +31,15 @@ public class FSSignupPage extends GenericWrappers {
 		//return this;
 	}
 
+	public FSHWPage1 clickHWPM() {
+		if (click(getWebElement("id", "ivHowToPlay"))) {
+			reportStep("SignupScreen - HowtoPlay Main  button clicked successfully", "PASS");
+		} else {
+			reportStep("SignupScreen - HowtoPlay Main button click failed", "FAIL");
+		}
+		return new FSHWPage1(driver,test);
+		//return this;
+	}
 
 
 }

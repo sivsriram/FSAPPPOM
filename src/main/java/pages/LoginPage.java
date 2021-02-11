@@ -42,13 +42,13 @@ public class LoginPage extends GenericWrappers {
 		return this;
 	}
 
-	public FSHomePage clickLogin() {
+	public FSHWPage2 clickLogin() {
 		if (click(getWebElement("xpath", "(//span[@class='button-inner'])[3]"))) {
 			reportStep("Login button clicked successfully", "PASS");
 		} else {
 			reportStep("Login button click failed", "FAIL");
 		}
-		return new FSHomePage(driver,test);
+		return new FSHWPage2(driver,test);
 	}
 
 }
