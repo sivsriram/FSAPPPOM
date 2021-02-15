@@ -39,9 +39,12 @@ public class FSLinkAccts extends GenericWrappers {
 //		return new FSLinkAccts(driver,test);
 //}
 	public FSLinkAccts clickUnLinkAccounts() {
-		if (click(getWebElement("xpath", "//android.widget.TextView[@text='UNLINK']"))) {
+	
+		if (click(getWebElement("id", "btn_unlink"))) {
 			reportStep("UnLinkAccts button clicked successfully", "PASS");
-			sleep(3000);
+			sleep(2000);
+			reportStep("UnLinkAccts button clicked successfully", "PASS");
+			sleep(2000);
 		} else {
 			reportStep("UnLinkAccts button click failed", "FAIL");
 		}

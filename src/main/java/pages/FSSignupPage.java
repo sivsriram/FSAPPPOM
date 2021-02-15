@@ -24,6 +24,7 @@ public class FSSignupPage extends GenericWrappers {
 	public FSLoginPage clickLogin() {
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='LOG IN']"))) {
 			reportStep("Login button clicked successfully", "PASS");
+			sleep(3000);
 		} else {
 			reportStep("Login button click failed", "FAIL");
 		}
@@ -41,5 +42,16 @@ public class FSSignupPage extends GenericWrappers {
 		//return this;
 	}
 
+	public FSGooglelinkpage clickgacct() {
+		sleep(1000);
+		if (click(getWebElement("xpath", "//android.widget.TextView[@text='Continue with Google']"))) {
+			reportStep("Continue with Google button clicked successfully", "PASS");
+			sleep(3000);
+		} else {
+			reportStep("Continue with Google button click failed", "FAIL");
+		}
+		return new FSGooglelinkpage(driver,test);
+		//return this;
+	}
 
 }

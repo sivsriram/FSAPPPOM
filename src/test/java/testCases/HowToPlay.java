@@ -11,10 +11,10 @@ import wrappers.ProjectSpecificWrappers;
 public class HowToPlay extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
-		testCaseName = "Login";
-		testDescription = "Login in Fantasy Spin app";
+		testCaseName = "How to Play checks";
+		testDescription = "How to Play screens";
 		testNodes = "FSapp";
-		dataSheetName = "TC01";
+		dataSheetName = "INP1";
 	}
 
 

@@ -11,10 +11,10 @@ import wrappers.ProjectSpecificWrappers;
 public class LoginNegative extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
-		testCaseName = "Login";
-		testDescription = "Invalid Login in Fantasy Spin app";
+		testCaseName = "Login as Inavaid User";
+		testDescription = "Invalid Login User Check";
 		testNodes = "FSapp";
-		dataSheetName = "TC02";
+		dataSheetName = "INP2";
 		sleep(10000);
 	}
 
@@ -25,7 +25,8 @@ public class LoginNegative extends ProjectSpecificWrappers {
 			.clickLogin()
 			.enterEmailAddress(un)
 			.enterPassword(pwd)
-			.clickLoginForFailure();			
+			.clickLoginForFailure();
+//			.clickLogin();
 
 
 			

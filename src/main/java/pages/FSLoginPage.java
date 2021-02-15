@@ -17,18 +17,23 @@ public class FSLoginPage extends GenericWrappers {
 
 
 	public FSLoginPage enterEmailAddress(String email) {
-		if (enterValue(getWebElement("id", "FSloginemailtxt"), email))
+		if (enterValue(getWebElement("id", "FSloginemailtxt"), email)) {
 			reportStep("Email address " + email + " entered successfully", "PASS");
-		else
+			sleep(3000);
+	}	else {
+	
 			reportStep("Email address entry failed", "FAIL");
-		return this;
 	}
+		return this;
+}
 
 	public FSLoginPage enterPassword(String pwd) {
-		if (enterValue(getWebElement("id", "FSloginpwdtxt"), pwd))
+		if (enterValue(getWebElement("id", "FSloginpwdtxt"), pwd)) {
 			reportStep("Password " + pwd + " entered successfully", "PASS");
-		else
+			sleep(3000);
+		}else {
 			reportStep("Password entry failed", "FAIL");
+		}
 		return this;
 	}
 	
@@ -45,13 +50,17 @@ public class FSLoginPage extends GenericWrappers {
 	}
 
 	public FSLoginPage clickLoginForFailure() {
+		sleep(2000);
 		if (click(getWebElement("id", "FSloginbtn"))) {
 			reportStep("UserName or password is incorrect", "PASS");
-			sleep(20000);
+			sleep(3000);
+			reportStep("UserName or password is incorrect", "PASS");
+			sleep(2000);
 		} else {
 			reportStep("Login button click failed", "FAIL");
 		}
-		return this;
+//		return this;
+		return new FSLoginPage(driver,test);
 	}
 //
 //	public HomePage clickLogin() {

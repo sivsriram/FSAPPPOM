@@ -11,10 +11,10 @@ import wrappers.ProjectSpecificWrappers;
 public class LoginTC extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
-		testCaseName = "Login";
-		testDescription = "Login in Fantasy Spin app";
+		testCaseName = "Login as Valid User";
+		testDescription = "Login Valid User Check";
 		testNodes = "FSapp";
-		dataSheetName = "TC01";
+		dataSheetName = "INP1";
 	}
 
 
