@@ -54,4 +54,17 @@ public class FSSignupPage extends GenericWrappers {
 		//return this;
 	}
 
+	public FSFBLinkpage clickFBSignin() {
+		sleep(1000);
+		if (click(getWebElement("id", "FSFBloginbtn"))) {
+			reportStep("Continue with FB button clicked successfully", "PASS");
+			sleep(3000);
+		} else {
+			reportStep("Continue with FB button click failed", "FAIL");
+		}
+		return new FSFBLinkpage(driver,test);
+		//return this;
+	}
+
+	
 }
