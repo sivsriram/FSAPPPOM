@@ -15,7 +15,7 @@ public class IosWrappers extends AndroidWrappers {
 			String app, String wdaLocalPort) {
 		return launchApp("iOS", deviceName, udid, "", "", "XCUITest", "", "", xcodeOrgId, "iPhone Developer", bundleId,
 				app, "", wdaLocalPort);
-	}
+	} 
 
 	public boolean launchSafariBrowser(String deviceName, String URL, String udid) {
 		return launchBrowser("iOS", "Safari", deviceName, URL, udid, "", "");

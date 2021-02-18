@@ -12,13 +12,13 @@ public class LoginNegative extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
 		testCaseName = "Login as Inavaid User";
-		testDescription = "Invalid Login User Check";
+		testDescription = "Invalid Login User Checks";
 		testNodes = "FSapp";
 		dataSheetName = "INP2";
 		sleep(10000);
 	}
 
-
+ 
 	@Test(dataProvider="fetchData")
 	public void runTC(String un, String pwd) {
 		new FSSignupPage(driver, test)

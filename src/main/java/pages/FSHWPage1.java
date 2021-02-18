@@ -19,7 +19,7 @@ public class FSHWPage1 extends GenericWrappers {
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	public FSHWPage2 clickHWP1() {
+	public FSHWPage2 clickHWP1() { 
 	    int c=1;
 	    reportStep("HowtoPlay 1st screen Loaded successfully", "PASS");
 		if (click(getWebElement("id", "ivRight"))) {

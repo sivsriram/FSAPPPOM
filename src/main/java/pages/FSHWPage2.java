@@ -19,7 +19,7 @@ public class FSHWPage2 extends GenericWrappers {
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	public FSHWPage2 clickSettings() {
+	public FSHWPage2 clickSettings() { 
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='LOG IN']"))) {
 			reportStep("Login button clicked successfully", "PASS");
 			//click(getWebElement("xpath", "//android.widget.TextView[@text='LOG IN']"));

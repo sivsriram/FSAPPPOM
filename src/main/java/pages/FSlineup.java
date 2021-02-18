@@ -15,7 +15,7 @@ public class FSlineup extends GenericWrappers {
 
 	public FSlineup(AppiumDriver<WebElement> driver, ExtentTest test) {
 		this.driver = driver;
-		this.test = test;
+		this.test = test; 
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 

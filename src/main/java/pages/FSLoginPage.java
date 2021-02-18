@@ -24,7 +24,7 @@ public class FSLoginPage extends GenericWrappers {
 	
 			reportStep("Email address entry failed", "FAIL");
 	}
-		return this;
+		return this; 
 }
 
 	public FSLoginPage enterPassword(String pwd) {
@@ -37,7 +37,7 @@ public class FSLoginPage extends GenericWrappers {
 		return this;
 	}
 	
-	public FSSHomePage clickLogin() {
+	public FSSHomePage clickUPLogin() {
 		if (click(getWebElement("id", "FSloginbtn"))) {
 			reportStep("Login button clicked successfully", "PASS");
 			sleep(3000);

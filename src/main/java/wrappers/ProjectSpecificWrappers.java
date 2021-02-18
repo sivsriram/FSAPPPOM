@@ -18,7 +18,7 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 	@BeforeSuite
 	public void bs() {
 		startReport();
-	}
+	} 
 
 	@BeforeClass
 	public void bc() {
@@ -45,6 +45,7 @@ public class ProjectSpecificWrappers extends GenericWrappers {
 	@AfterMethod
 	public void am() {
 		closeApp();
+		closebrowserApp();
 	}
 
 	@AfterSuite

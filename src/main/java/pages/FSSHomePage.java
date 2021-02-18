@@ -17,7 +17,7 @@ public class FSSHomePage extends GenericWrappers {
 		this.driver = driver;
 		this.test = test;
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-	}
+	} 
 
 	public FSSettings clickSettings() {
 		if (click(getWebElement("id", "FSHOMEsettingsicon"))) {

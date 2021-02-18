@@ -7,10 +7,12 @@
 		<parameter name="deviceName" value=" Sriram device"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
-		
 
-            <class name="testCases.GoogleAcctLink" />
-
+			<class name="testCases.Login_howtoplay_scoring_FAQ" />
+			<class name="testCases.FBLoginlink" />
+			<class name="testCases.GoogleAcctLink" />
+			<class name="testCases.HowToPlay" />
+			
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

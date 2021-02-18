@@ -37,19 +37,12 @@ public class FSSettings extends GenericWrappers {
 	public FSSettings clickHowtoplay() {
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='How to Play']"))) {
 			reportStep("How to Play button clicked successfully", "PASS");
-			sleep(3000);
+			sleep(15000);
 			reportStep("How to Play screen captured","");
-			sleep(3000);
+			sleep(15000);
 			switchToAnotherApp("com.footballnation.fantasyspin.debug");
-			sleep(3000);	
-			
-//		MobileElement element1 = driver.findElement(MobileBy.AndroidUIAutomator(
-//				"new UiScrollable(new UiSelector().resourceId(\"android:id/tv_row_name\")).getChildByText("
-//				+ "new UiSelector().className(\"android.widget.TextView\"), \"Scoring\")"));
-//		
-//		element1.click();
-			
-			
+			sleep(15000);	
+						
 		} else {
 			reportStep("How to Play button click failed", "FAIL");
 		}
@@ -59,14 +52,14 @@ public class FSSettings extends GenericWrappers {
 	public FSSettings clickscoring() {
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='Scoring']"))) {
 			reportStep("Scoring button clicked successfully", "PASS");
-			sleep(200);
+			sleep(15000);
 			reportStep("Scoring screen captured","");
-			sleep(200);		
+			sleep(15000);		
 			click(getWebElement("xpath", "//android.widget.TextView[@text='MLB BASEBALL']"));
 			reportStep("Scoring Game  options screen captured","");
-			sleep(200);
+			sleep(15000);
 			switchToAnotherApp("com.footballnation.fantasyspin.debug");
-			sleep(200);	
+			sleep(15000);	
 			click(getWebElement("id", "FSsetscrebackbtn"));
 		} else {
 			reportStep("Setting button click failed", "FAIL");
@@ -75,13 +68,13 @@ public class FSSettings extends GenericWrappers {
 	}
 	public FSSettings clickFAQS() {
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='Frequently Asked Questions']"))) {
-			sleep(200);
+			sleep(15000);
 			reportStep("FAQ button clicked successfully", "PASS");
-			sleep(200);
+			sleep(15000);
 			reportStep("Web link screen captured successfully", "PASS");
-			sleep(200);
+			sleep(15000);
 			switchToAnotherApp("com.footballnation.fantasyspin.debug");
-			sleep(300);
+			sleep(15000);
 		} else {
 			reportStep("Setting button click failed", "FAIL");
 		}
@@ -90,14 +83,14 @@ public class FSSettings extends GenericWrappers {
 	public FSSettings ClickLegal_support() {
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='Legal & Support']"))) {
 			reportStep("Legal & Support button clicked successfully", "PASS");
-			sleep(200);
+			sleep(15000);
 			reportStep("Sub item screen captured successfully", "PASS");
 			click(getWebElement("xpath", "//android.widget.TextView[@text='TERMS OF USE']"));
-			sleep(200);
+			sleep(15000);
 			reportStep("Web link screen captured successfully", "PASS");
-			sleep(200);
+			sleep(15000);
 			switchToAnotherApp("com.footballnation.fantasyspin.debug");
-			sleep(500);
+			sleep(15000);
 			click(getWebElement("id", "FSsetLSbackbtn"));
 		} else {
 			reportStep("Setting button click failed", "FAIL");
@@ -106,11 +99,11 @@ public class FSSettings extends GenericWrappers {
 	}
 	
 	public FSHowtplay_score_FAQpage ClickFeedback() {
-		sleep(500);
+		sleep(15000);
 		scrollFromDownToUpinAppUsingPointerInput();
 		if (click(getWebElement("xpath", "//android.widget.TextView[@text='Feedback']"))) {
 			reportStep("Feedback button clicked successfully", "PASS");
-			sleep(500);
+			sleep(15000);
 			switchToAnotherApp("com.footballnation.fantasyspin.debug");
 		} else {
 			reportStep("Feedback button click failed", "FAIL");

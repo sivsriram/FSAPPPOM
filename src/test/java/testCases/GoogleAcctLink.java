@@ -8,24 +8,28 @@ import pages.FSSignupPage;
 import pages.LoginPage;
 import wrappers.ProjectSpecificWrappers;
 
-public class HowToPlay extends ProjectSpecificWrappers {
+public class GoogleAcctLink extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
-		testCaseName = "Sign screen - How to Play checks";
-		testDescription = "Sign screen - How to Play screens checks";
+		testCaseName = "Continue with Google User";
+		testDescription = "Continue with Google User Checks";
 		testNodes = "FSapp";
-		dataSheetName = "INP1"; 
+		dataSheetName = "INP1";
 	}
 
 
 	@Test
 	public void runTC() {
 		new FSSignupPage(driver, test)
-			.clickHWPM()
-			.clickHWP1();
-			
-			
-			
+			.clickgacct()
+			.clickGAccount()
+			.clickLinkAccounts()
+			.clickUnLinkAccounts();
+
+//	@Test(dataProvider="fetchData")
+//	public void runTC(String un, String pwd) {
+//		new FSSignupPage(driver, test)
+//			.clickLogin()
 //			.enterEmailAddress(un)
 //			.enterPassword(pwd)
 //			.clickLogin()			

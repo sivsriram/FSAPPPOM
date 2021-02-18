@@ -11,7 +11,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.android.nativekey.PressesKey;
 
-public class AndroidWrappers extends CommonWrappers {
+public class AndroidWrappers extends CommonWrappers { 
 
 	public boolean launchAndroidApp(String deviceName, String appPackage, String appActivity, String automationName,
 			String app) {

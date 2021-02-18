@@ -38,7 +38,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import utils.Reporter;
 
-public class CommonWrappers extends Reporter {
+public class CommonWrappers extends Reporter { 
 	public AppiumDriver<WebElement> driver;
 
 	public boolean launchApp(String platformName, String deviceName, String udid, String appPackage, String appActivity,
@@ -717,5 +717,14 @@ public class CommonWrappers extends Reporter {
 
 	public void stopRunningApp(String bundleIdOrAppPackage) {
 		driver.terminateApp(bundleIdOrAppPackage);
+	}
+	
+	public void closebrowserApp() {
+		if (driver != null) {
+			try {
+				driver.quit();
+			} catch (Exception e) {
+			}
+		}
 	}
 }
