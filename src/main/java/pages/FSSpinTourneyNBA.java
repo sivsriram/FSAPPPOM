@@ -19,16 +19,27 @@ public class FSSpinTourneyNBA extends GenericWrappers {
 		//PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	} 
 
-	public FSSpinTourneyNBA clickChipandTokenTourney() {
+	public FSSpinTourneyNBA clickSpinbtn() {
 			sleep(15000);
+//			click(getWebElement("id", "iv_spin"));
+//			reportStep("Spin screen Spin button clicked", "Pass");		
+//			sleep(15000);		
+//			click(getWebElement("id", "FSspinprvbtn"));
+//			sleep(15000);
+//			reportStep("Spin screen LockInLineup button clicked", "Pass");
+//			click(getWebElement("id", "FSLUPhomebtn"));
+//			sleep(15000);
+//			reportStep("Lineup screen Home button clicked", "Pass");
+//			sleep(15000);
 			click(getWebElement("id", "iv_spin"));
-			reportStep("Spin screen Spin button clicked", "FAIL");		
-			sleep(15000);		
+			reportStep("Spin button clicked successfully", "PASS");
+			sleep(30000);		
 			click(getWebElement("id", "FSspinprvbtn"));
-			sleep(15000);		
+			sleep(15000);
+			reportStep("Spin screen LockInLineup button clicked", "Pass");
 			click(getWebElement("id", "FSLUPhomebtn"));
 			sleep(15000);
-			reportStep("Lineup screen Home button clicked", "FAIL");
+			reportStep("Lineup screen Home button clicked", "Pass");
 			return new FSSpinTourneyNBA(driver,test);
 	}
 	

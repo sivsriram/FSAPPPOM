@@ -32,7 +32,11 @@ public class FSSpinflow extends ProjectSpecificWrappers {
 			.ClickSpinYourLineups()
 			.clickNBABasketball()
 			.clickChipandTokenTourney()
-			.clickChipandTokenTourney();
+			.clickChipandTokenTourney()
+			.clickSpinbtn();
+		
+			
+			//.clickChipandTokenTourney();
 			
 			
 			

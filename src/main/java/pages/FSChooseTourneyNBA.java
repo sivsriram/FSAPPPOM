@@ -26,10 +26,13 @@ public class FSChooseTourneyNBA extends GenericWrappers {
 		sleep(15000);
 		scrollFromDownToUpinAppUsingPointerInput();
 		sleep(10000);
+		reportStep("Spin screen 1K Display ", "PASS");
 		click(getWebElement("xpath", "//android.widget.TextView[@text='1K']"));
 		reportStep("1K tourney button clicked  successfully", "PASS");
-		sleep(15000);
+		sleep(10000);
 		return new FSSpinTourneyNBA(driver,test);
+
+
 			
 	}
 		
