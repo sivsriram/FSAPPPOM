@@ -4,15 +4,12 @@
 		<parameter name="appPackage" value="com.footballnation.fantasyspin.debug"></parameter>
 		<parameter name="appActivity" value="com.footballnation.fantasyspin.activitys.SplashActivity"></parameter>
 		<parameter name="platformName" value="Android"></parameter>
-		<parameter name="deviceName" value=" Sriram device"></parameter>
-	<test thread-count="5" name="Test">
+		<parameter name="deviceName" value=" Sriram device"></parameter><test thread-count="5" name="Test">
 		<classes>
 
-			<class name="testCases.Login_howtoplay_scoring_FAQ" />
-			<class name="testCases.FBLoginlink" />
-			<class name="testCases.GoogleAcctLink" />
-			<class name="testCases.HowToPlay" />
+			<class name="testCases.FSSpinflow" />
 			
 		</classes>
-	</test> <!-- Test -->
+	</test>
+	 <!-- Test -->
 </suite> <!-- Suite -->

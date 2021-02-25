@@ -6,6 +6,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 import io.appium.java_client.AppiumDriver;
 import wrappers.GenericWrappers;
+import wrappers.CommonWrappers.Locators;
 
 public class FSLoginPage extends GenericWrappers {
 	
@@ -40,7 +41,35 @@ public class FSLoginPage extends GenericWrappers {
 	public FSSHomePage clickUPLogin() {
 		if (click(getWebElement("id", "FSloginbtn"))) {
 			reportStep("Login button clicked successfully", "PASS");
-			sleep(3000);
+			sleep(5000);
+			
+//			 boolean DStext = false;
+			
+			if (eleIsDisplayed(getWebElement(Locators.ID.toString(), "com.footballnation.fantasyspin.debug:id/tv_slogan"))) {
+				System.out.println("On daily spin screen");
+				click(getWebElement(Locators.ID.toString(), "tv_spin_count_shadow"));
+				reportStep("DAILY Spin button clicked successfully", "PASS");
+				//return new FSDailyspinpage(driver,test);
+			}
+			else
+			System.out.println("Not On daily spin screen");
+//			return new FSSHomePage(driver,test);
+//				try {
+//				DStext=(verifyText(getWebElement(Locators.ID.toString(), "com.footballnation.fantasyspin.debug:id/tv_slogan"), "SPIN EVERYDAY TO GET FREE CHIPS!"));
+//				}catch (Exception e) {
+//					
+//				}
+//				if (DStext)
+//				{
+//				System.out.println("On daily spin screen");
+//				click(getWebElement(Locators.ID.toString(), "tv_spin_count_shadow"));
+//				reportStep("DAILY Spin button clicked successfully", "PASS");
+//				//return new FSDailyspinpage(driver,test);
+//				}
+//				else
+//					return new FSSHomePage(driver,test);
+				
+
 		} else {
 			reportStep("Login button click failed", "FAIL");
 		}

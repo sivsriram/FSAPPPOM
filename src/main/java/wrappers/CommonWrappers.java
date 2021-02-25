@@ -722,6 +722,7 @@ public class CommonWrappers extends Reporter {
 	public void closebrowserApp() {
 		if (driver != null) {
 			try {
+				driver.close();
 				driver.quit();
 			} catch (Exception e) {
 			}

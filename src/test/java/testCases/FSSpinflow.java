@@ -9,10 +9,10 @@ import pages.FSSignupPage;
 import pages.LoginPage;
 import wrappers.ProjectSpecificWrappers;
 
-public class Login_howtoplay_scoring_FAQ extends ProjectSpecificWrappers {
+public class FSSpinflow extends ProjectSpecificWrappers {
 	@BeforeTest
 	public void bt() {
-		testCaseName = "Login as Valid User-settings or spin screen flow checks";
+		testCaseName = "Login as Valid User and check howtoplay,scoring,FAQ,Feedback etc";
 		testDescription = "Login Valid User - settings and other releated link checks";
 		testNodes = "FSapp";
 		dataSheetName = "INP1";
@@ -29,14 +29,17 @@ public class Login_howtoplay_scoring_FAQ extends ProjectSpecificWrappers {
 			.enterEmailAddress(un)
 			.enterPassword(pwd)
 			.clickUPLogin()
-			.clickSettings()
-		    .clickHowtoplay()
-		    .clickscoring()	
-		    .clickFAQS()
-		    .ClickLegal_support()
-		    .ClickFeedback()
-		    .clickLinkAccounts()
-		    .clickUnLinkAccounts();
+			.ClickSpinYourLineups()
+			.clickNBABasketball()
+			.clickChipandTokenTourney()
+			.clickChipandTokenTourney();
+			
+			
+			
+
+//			.clickModifyUsername();
+			
+			
 		
 	}
 

@@ -42,13 +42,54 @@ public class LoginPage extends GenericWrappers {
 		return this;
 	}
 
-	public FSHWPage2 clickLogin() {
+	public FSDailyspinpage clickLogin() {
 		if (click(getWebElement("xpath", "(//span[@class='button-inner'])[3]"))) {
 			reportStep("Login button clicked successfully", "PASS");
+			sleep(5000);
+			 boolean DStext = false;
+				try {
+				DStext=(verifyText(getWebElement(Locators.ID.toString(), "com.footballnation.fantasyspin.debug:id/tv_slogan"), "SPIN EVERYDAY TO GET FREE CHIPS!"));
+				}catch (Exception e) {
+					
+				}
+				if (DStext)
+				{
+				System.out.println("On daily spin screen");
+				click(getWebElement(Locators.ID.toString(), "tv_spin_count_shadow"));
+				//reportStep("Spin button clicked successfully", "PASS");
+				return new FSDailyspinpage(driver,test);
+				
+				}
+				
+				else {
+					reportStep("Moved to Home screen", "FAIL");
+					return new FSDailyspinpage(driver,test);
+				}
+					
 		} else {
-			reportStep("Login button click failed", "FAIL");
+			reportStep("Moved to Home screen", "FAIL");
+			
 		}
-		return new FSHWPage2(driver,test);
+		return new FSDailyspinpage(driver,test);
 	}
 
+
+
+public FSDailyspinpage verification() {
+    sleep(500);
+    boolean DStext = false;
+	try {
+		DStext=(verifyText(getWebElement(Locators.ID.toString(), "com.footballnation.fantasyspin.debug:id/tv_slogan"), "SPIN EVERYDAY TO GET FREE CHIPS!"));
+	}catch (Exception e) {
+		
+	}
+	if (DStext)
+	{
+	System.out.println("On daily spin screen");
+	//click(getWebElement(Locators.ID.toString(), "tv_spin_count_shadow"));
+	reportStep("Spin button clicked successfully", "PASS");
+	
+	}
+	return new FSDailyspinpage(driver,test);
+}
 }
